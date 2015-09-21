@@ -9,7 +9,7 @@
     //The example on http://www.gnu.org/software/libc/manual/html_node/Server-Example.html omits this library!
     #include <arpa/inet.h>
 
-    #define MAXMSG 4096
+    #define MAXMSG 128
 
 /**********************************************************************/
 /* Return the informational HTTP headers about a file. */
