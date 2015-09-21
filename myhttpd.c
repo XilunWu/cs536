@@ -9,7 +9,7 @@
     //The example on http://www.gnu.org/software/libc/manual/html_node/Server-Example.html omits this library!
     #include <arpa/inet.h>
 
-    #define MAXMSG 40960
+    #define MAXMSG 4096
 
 /**********************************************************************/
 /* Return the informational HTTP headers about a file. */
@@ -34,12 +34,12 @@ void headers(int fd, const char *filename, const char *type)
 }
 
 int read_from_client (int fd) {
-      //if EOF, return -1
   printf("read_from_client: fd = %d\n", fd);
   char buf[MAXMSG];
   bzero(buf,MAXMSG);
   int n;
   n = read(fd,buf,MAXMSG);
+  //if EOF, return -1
   if (n < 0) {error("ERROR reading from socket"); return -1;}
   printf("Here is the message: \n%s\n",buf);
 
