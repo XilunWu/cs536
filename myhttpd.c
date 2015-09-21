@@ -40,7 +40,7 @@ int read_from_client (int fd) {
   int n;
   n = read(fd,buf,MAXMSG);
   //if EOF, return -1
-  if (n < 0) {error("ERROR reading from socket"); return -1;}
+  if (n < 0) {printf("ERROR reading from socket\n"); return -1;}
   printf("Here is the message: \n%s\n",buf);
 
   //Parse the request
@@ -79,7 +79,7 @@ int read_from_client (int fd) {
   fgets(outbuf, sizeof(outbuf), resource);
   while (!feof(resource)) {
     n = write(fd,outbuf,strlen(outbuf));
-    if (n < 0) error("ERROR writing to socket");
+    if (n < 0) printf("ERROR writing to socket\n");
     fgets(outbuf, sizeof(outbuf), resource);
   }
   fclose(resource);
